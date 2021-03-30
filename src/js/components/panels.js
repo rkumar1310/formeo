@@ -23,6 +23,7 @@ export default class Panels {
    */
   constructor(options) {
     this.opts = merge(defaults, options)
+    console.log(options)
     this.panelDisplay = this.opts.displayType
 
     this.activePanelIndex = 0

@@ -102,6 +102,20 @@ class DOM {
 
     let element = document.createElement(tag)
 
+    if (tag === 'project') {
+      const projectName = document.createElement('input')
+      projectName.name = elem.id + '-project-name'
+      const projectNameLabel = document.createElement('label')
+      projectNameLabel.textContent = 'Project Name'
+      projectNameLabel.append(projectName)
+      const projectDescription = document.createElement('textarea')
+      projectDescription.name = elem.id + '-project-description'
+      const projectDescriptionLabel = document.createElement('label')
+      projectDescriptionLabel.textContent = 'Project Description'
+      projectDescriptionLabel.append(projectDescription)
+      element.append(projectNameLabel)
+      element.append(projectDescriptionLabel)
+    }
     /**
      * Object for mapping contentType to its function
      * @type {Object}

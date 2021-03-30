@@ -17,7 +17,6 @@ import layoutControls from './layout'
 import formControls from './form'
 import htmlControls from './html'
 import defaultOptions from './options'
-
 const defaultElements = [...formControls, ...htmlControls, ...layoutControls]
 
 /**
@@ -63,6 +62,7 @@ export class Controls {
    */
   registerControls() {
     this.controls = this.elements.map(Element => {
+      console.log(Element)
       const isControl = typeof Element === 'function'
       const control = isControl ? new Element() : new Control(Element)
       const {
@@ -89,6 +89,7 @@ export class Controls {
 
       return control.dom
     })
+    console.log(this.elements, this.controls)
 
     return this.controls
   }

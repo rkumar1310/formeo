@@ -445,6 +445,52 @@ class DOM {
         return inputWrap
       }
 
+      const checkboxInput = () => {
+        const input = {
+          tag: 'input',
+          attrs: {
+            name: id + '[]',
+            type: fieldType,
+            value: option.value || '',
+            id: `${id}-${i}`,
+            ...rest,
+          },
+          action,
+        }
+        const optionLabel = {
+          tag: 'label',
+          attrs: {
+            for: `${id}-${i}`,
+          },
+          config: {
+            inputWrap: 'form-check',
+          },
+          children: option.label,
+        }
+        const inputWrap = {
+          children: [input, optionLabel],
+          className: [`f-${fieldType}`],
+        }
+
+        if (elem.attrs.className) {
+          elem.config.inputWrap = elem.attrs.className
+        }
+
+        if (elem.config.inline) {
+          inputWrap.className.push(`f-${fieldType}-inline`)
+        }
+
+        if (option.selected) {
+          input.attrs.checked = true
+        }
+
+        if (isPreview) {
+          optionLabel.attrs.contenteditable = true
+        }
+
+        return inputWrap
+      }
+
       const optionMarkup = {
         select: () => {
           return {
@@ -466,7 +512,7 @@ class DOM {
             action: elem.action,
           })
         },
-        checkbox: defaultInput,
+        checkbox: checkboxInput,
         radio: defaultInput,
       }
 

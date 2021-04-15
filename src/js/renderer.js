@@ -229,11 +229,13 @@ export default class FormeoRenderer {
     return comparisonMap[comparison] && comparisonMap[comparison](sourceValue, targetValue)
   }
 
-  getInputValue = ({ target }, sourceProperty) => {
-    if (target.hasAttribute('type') && target.type === 'checkbox') {
-      return Array.from(this.renderedForm.querySelectorAll(`[name="${target.name}"]:checked`)).map(input => input.value)
+  getInputValue = (evt, sourceProperty) => {
+    if (evt.target.hasAttribute('type') && evt.target.type === 'checkbox') {
+      return Array.from(this.renderedForm.querySelectorAll(`[name="${evt.target.name}"]:checked`)).map(
+        input => input.value
+      )
     } else {
-      return String(target[sourceProperty])
+      return String(evt.target[sourceProperty])
     }
   }
   execResult = ({ assignment, target, targetProperty, value }) => {
@@ -282,7 +284,7 @@ export default class FormeoRenderer {
     if (isExternalAddress(address)) {
       components.push(this.external[componentId])
     } else {
-      if (this.renderedForm.querySelectorAll(`[name="f-${componentId}[]"]`)) {
+      if (this.renderedForm.querySelectorAll(`[name="f-${componentId}[]"]`).length) {
         components.push(...this.renderedForm.querySelectorAll(`[name="f-${componentId}[]"]`))
       } else {
         components.push(...this.renderedForm.querySelectorAll(`[name=f-${componentId}]`))

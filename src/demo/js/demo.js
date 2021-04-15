@@ -8,6 +8,7 @@ import FormeoRenderer from '../../js/renderer'
 
 const editor = new FormeoEditor(editorOptions)
 const renderer = new FormeoRenderer(renderOptions)
+console.log(renderer)
 
 // append action buttons
 editorButtons(editor, renderer)

@@ -109,11 +109,26 @@ class DOM {
 
       const firstProject = document.createElement('select')
       firstProject.name = 'project-name[]'
+      var opt1 = document.createElement('option')
+      opt1.value = ''
+      opt1.innerHTML = 'No Project Selected'
+
+      firstProject.appendChild(opt1)
+
       const secondProject = document.createElement('select')
       secondProject.name = 'project-name[]'
+      var opt2 = document.createElement('option')
+      opt2.value = ''
+      opt2.innerHTML = 'No Project Selected'
+
+      secondProject.appendChild(opt2)
       const thirdProject = document.createElement('select')
       thirdProject.name = 'project-name[]'
+      var opt3 = document.createElement('option')
+      opt3.value = ''
+      opt3.innerHTML = 'No Project Selected'
 
+      thirdProject.appendChild(opt3)
       projectContainer.append(firstProject)
       projectContainer.append(secondProject)
       projectContainer.append(thirdProject)

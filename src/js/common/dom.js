@@ -103,18 +103,20 @@ class DOM {
     let element = document.createElement(tag)
 
     if (tag === 'project') {
-      const projectName = document.createElement('input')
-      projectName.name = elem.id + '-project-name'
-      const projectNameLabel = document.createElement('label')
-      projectNameLabel.textContent = 'Project Name'
-      projectNameLabel.append(projectName)
-      const projectDescription = document.createElement('textarea')
-      projectDescription.name = elem.id + '-project-description'
-      const projectDescriptionLabel = document.createElement('label')
-      projectDescriptionLabel.textContent = 'Project Description'
-      projectDescriptionLabel.append(projectDescription)
-      element.append(projectNameLabel)
-      element.append(projectDescriptionLabel)
+      const projectContainer = document.createElement('div')
+      projectContainer.style.display = 'flex'
+      element.append(projectContainer)
+
+      const firstProject = document.createElement('select')
+      firstProject.name = 'project-name[]'
+      const secondProject = document.createElement('select')
+      secondProject.name = 'project-name[]'
+      const thirdProject = document.createElement('select')
+      thirdProject.name = 'project-name[]'
+
+      projectContainer.append(firstProject)
+      projectContainer.append(secondProject)
+      projectContainer.append(thirdProject)
     }
     /**
      * Object for mapping contentType to its function

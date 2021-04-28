@@ -193,7 +193,6 @@ class DOM {
         if (elem.attrs.type === 'checkbox' || elem.attrs.type === 'radio') {
           wrap.id = elem.id
         }
-        console.log(elem, wrap, this.create(wrap, isPreview))
         return this.create(wrap, isPreview)
       }
       processed.push('options')

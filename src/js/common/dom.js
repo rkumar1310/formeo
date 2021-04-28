@@ -190,6 +190,10 @@ class DOM {
           wrap.className = elem.attrs.className
         }
         wrap.config = Object.assign({}, elem.config)
+        if (elem.attrs.type === 'checkbox' || elem.attrs.type === 'radio') {
+          wrap.id = elem.id
+        }
+        console.log(elem, wrap, this.create(wrap, isPreview))
         return this.create(wrap, isPreview)
       }
       processed.push('options')

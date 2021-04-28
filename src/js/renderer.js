@@ -61,9 +61,9 @@ export default class FormeoRenderer {
     this.renderedForm = dom.render(config)
     dom.empty(this.container)
 
-    this.applyConditions()
-
     this.container.appendChild(this.renderedForm)
+
+    this.applyConditions()
   }
 
   orderChildren = (type, order) => order.reduce((acc, cur) => [...acc, this.form[type][cur]], [])
